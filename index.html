@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="KTh1cKyuSwpw-Hll57T8dBnzsUOrgJiNOJmYYvfml_A" />
+<title>YXL YB 커뮤니티</title>
+<meta name="description" content="염보성 크루 YXL / YB 공식 커뮤니티. SOOP LIVE, 유튜브, 게시판, 투표, 열혈팬 VIP 전당, 시그니처.">
+<meta property="og:title" content="YXL YB 커뮤니티">
+<meta property="og:description" content="염보성 크루 YXL / YB 공식 커뮤니티. SOOP LIVE, 유튜브, 게시판, 투표, 열혈팬 VIP 전당.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ===== DESIGN TOKENS ===== */
+:root{
+  --bg:#f4f8ff;--bg2:#eaf2ff;--card:#fff;--ink:#1b2440;--ink-soft:#5a6585;
+  --line:#e6ecfb;--cyan:#00beff;--cyan-deep:#0095e0;--violet:#8b5cff;
+  --pink:#ff5fa2;--mint:#19e3b1;--gold:#ffb43d;
+  --glow-cyan:0 0 0 1px rgba(0,190,255,.18),0 10px 30px -8px rgba(0,190,255,.45);
+  --glow-violet:0 0 0 1px rgba(139,92,255,.18),0 10px 30px -8px rgba(139,92,255,.45);
+  --shadow:0 8px 30px -12px rgba(27,36,64,.18);
+  --radius:20px;
+  --font:'Outfit','Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+}
+/* ===== RESET ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(900px 500px at 12% -8%,rgba(0,190,255,.14),transparent 60%),
+    radial-gradient(800px 520px at 92% 0%,rgba(139,92,255,.14),transparent 60%),
+    radial-gradient(700px 600px at 70% 100%,rgba(255,95,162,.08),transparent 60%),
+    var(--bg);
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,46,116,.55)}70%{box-shadow:0 0 0 8px rgba(255,46,116,0)}100%{box-shadow:0 0 0 0 rgba(255,46,116,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@keyframes slideOut{from{transform:translateX(0)}to{transform:translateX(100%)}}
+.fade-in{animation:fadeUp .45s ease both}
+
+/* ===== HEADER ===== */
+header.top{position:sticky;top:0;z-index:50;backdrop-filter:saturate(150%) blur(14px);background:rgba(255,255,255,.78);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:66px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;letter-spacing:-.5px;flex:none;cursor:pointer}
+.logo .mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;font-size:14px;background:linear-gradient(135deg,var(--cyan),var(--violet));box-shadow:var(--glow-cyan);transition:transform .3s}
+.logo:hover .mark{transform:rotate(8deg) scale(1.08)}
+.logo small{font-size:11px;color:var(--ink-soft);font-weight:700;display:block;margin-top:1px}
+nav.main{display:flex;gap:2px;margin-left:4px;flex:1;flex-wrap:wrap}
+nav.main button{font-family:inherit;font-weight:700;font-size:13px;color:var(--ink-soft);background:none;border:0;padding:7px 10px;border-radius:11px;cursor:pointer;transition:.18s;white-space:nowrap}
+nav.main button:hover{color:var(--ink);background:var(--bg2)}
+nav.main button.on{color:#fff;background:linear-gradient(135deg,var(--cyan),var(--cyan-deep));box-shadow:var(--glow-cyan)}
+.btn-login{font-weight:800;font-size:13.5px;color:#fff;padding:9px 16px;border-radius:11px;flex:none;background:linear-gradient(135deg,var(--violet),var(--pink));box-shadow:var(--glow-violet);border:0;cursor:pointer;transition:transform .2s}
+.btn-login:hover{transform:scale(1.04)}
+.hamburger{display:none;place-items:center;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:18px;margin-left:auto;transition:transform .2s}
+.hamburger:hover{transform:scale(1.06)}
+.search{display:flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:6px 8px 6px 14px;flex:none}
+.search input{border:0;background:none;outline:none;font-family:inherit;font-size:13.5px;width:120px;color:var(--ink)}
+.search button{border:0;cursor:pointer;width:30px;height:30px;border-radius:50%;color:#fff;font-size:14px;background:linear-gradient(135deg,var(--cyan),var(--violet));transition:transform .2s}
+.search button:hover{transform:scale(1.1)}
+
+/* ===== MOBILE DRAWER ===== */
+.drawer-bg{position:fixed;inset:0;background:rgba(15,22,48,.45);backdrop-filter:blur(3px);z-index:200;display:none;opacity:0;transition:opacity .3s}
+.drawer-bg.on{display:block;opacity:1}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:280px;max-width:85vw;background:var(--card);z-index:201;transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);padding:24px;overflow-y:auto;box-shadow:-10px 0 40px rgba(0,0,0,.15)}
+.drawer.on{transform:translateX(0)}
+.drawer-close{border:0;background:var(--bg2);width:36px;height:36px;border-radius:10px;cursor:pointer;font-size:18px;color:var(--ink-soft);float:right;transition:transform .2s}
+.drawer-close:hover{transform:rotate(90deg)}
+.drawer h4{font-size:14px;color:var(--ink-soft);margin:30px 0 12px 0;text-transform:uppercase;letter-spacing:1px}
+.drawer-nav{list-style:none;display:flex;flex-direction:column;gap:4px}
+.drawer-nav button{width:100%;text-align:left;font-family:inherit;font-weight:700;font-size:15px;color:var(--ink);background:none;border:0;padding:12px 14px;border-radius:12px;cursor:pointer;transition:.18s}
+.drawer-nav button:hover,.drawer-nav button.on{color:#fff;background:linear-gradient(135deg,var(--cyan),var(--violet));box-shadow:var(--glow-cyan)}
+
+/* ===== LIVE DOT ===== */
+.live-dot{width:8px;height:8px;border-radius:50%;background:#ff2e74;animation:pulse 1.6s infinite;flex:none}
+
+/* ===== VIEWS ===== */
+.view{display:none}.view.on{display:block;animation:fadeUp .4s ease both}
+
+/* ===== HERO ===== */
+.hero{position:relative;margin-top:26px;border-radius:28px;overflow:hidden;color:#fff;background:linear-gradient(120deg,#0a1230 0%,#15205a 40%,#2a1a6b 100%);box-shadow:var(--shadow);padding:46px 44px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 80% -10%,rgba(0,190,255,.45),transparent 60%),radial-gradient(500px 280px at 10% 120%,rgba(255,95,162,.4),transparent 60%);pointer-events:none}
+.hero::after{content:"";position:absolute;top:-40%;right:-10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,255,.3),transparent 70%);animation:float 6s ease-in-out infinite;pointer-events:none}
+.hero .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;position:relative;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:999px}
+.hero h1{font-size:44px;line-height:1.1;letter-spacing:-1.5px;margin:18px 0 12px;position:relative}
+.hero h1 .neon{background:linear-gradient(90deg,#5fe2ff,#b69bff,#ff8fc0);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(95,226,255,.5))}
+.hero p{color:#c9d4ff;font-size:16px;max-width:540px;position:relative}
+.hero .cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;position:relative}
+.hero .cta a,.hero .cta button{font-weight:800;font-size:15px;padding:13px 22px;border-radius:14px;cursor:pointer;border:0;font-family:inherit;transition:transform .2s}
+.hero .cta a:hover,.hero .cta button:hover{transform:translateY(-2px)}
+.cta .go{color:#06203a;background:linear-gradient(135deg,#5fe2ff,#00beff);box-shadow:0 10px 30px -8px rgba(0,190,255,.7)}
+.cta .ghost{color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25)!important}
+
+/* ===== SECTIONS ===== */
+section{margin-top:38px}
+.s-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.s-head h2{font-size:21px;letter-spacing:-.6px;display:flex;align-items:center;gap:9px}
+.s-head h2 .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:15px}
+.s-head .more{font-size:13px;font-weight:700;color:var(--cyan-deep);cursor:pointer;transition:color .2s}
+.s-head .more:hover{color:var(--violet)}
+
+/* ===== GRIDS ===== */
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);transition:box-shadow .3s}.pad{padding:20px}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 10px;text-align:center;box-shadow:var(--shadow);transition:.25s;cursor:pointer}
+.tile:hover{transform:translateY(-5px);box-shadow:var(--glow-cyan)}.tile .e{font-size:26px}.tile .n{font-size:13px;font-weight:700;margin-top:8px;color:var(--ink)}
+
+/* ===== VIDEO CARDS ===== */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:.25s}
+.vcard:hover{transform:translateY(-5px);box-shadow:var(--glow-violet)}
+.vthumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#2a1a6b,#0a1230);background-size:cover;background-position:center}
+.playov{position:absolute;inset:0;display:grid;place-items:center;font-size:36px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);cursor:pointer;background:rgba(0,0,0,.15);opacity:0;transition:opacity .25s}
+.vcard:hover .playov{opacity:1}
+.vmeta{padding:14px 16px}.vmeta .vt{font-weight:700;font-size:14.5px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.vmeta .vc{font-size:12px;color:var(--ink-soft);margin-top:6px}
+
+/* ===== SHORTS CARDS ===== */
+.sgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:.25s}
+.scard:hover{transform:translateY(-5px);box-shadow:var(--glow-violet)}
+.sthumb{position:relative;aspect-ratio:9/16;background:linear-gradient(160deg,#3a1f7a,#0a1230);background-size:cover;background-position:center}
+.scard .playov{opacity:0}.scard:hover .playov{opacity:1}
+.scard .st{padding:10px 12px;font-weight:700;font-size:12.5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ===== ADDBAR ===== */
+.addbar{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.addbar input,.addbar select{flex:1;min-width:120px;font-family:inherit;font-size:14px;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--card);outline:none;transition:border-color .2s,box-shadow .2s}
+.addbar input:focus,.addbar select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,190,255,.15)}
+.addbar button{font-weight:800;font-size:14px;color:#fff;border:0;cursor:pointer;padding:12px 20px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--violet));box-shadow:var(--glow-cyan);transition:transform .2s}
+.addbar button:hover{transform:translateY(-2px)}
+
+/* ===== FEED LIST ===== */
+.feed{list-style:none}.feed li{display:flex;align-items:center;gap:12px;padding:12px 6px;border-bottom:1px solid var(--line);transition:background .15s}.feed li:last-child{border-bottom:0}.feed li:hover{background:var(--bg2)}
+.feed .t{flex:1;min-width:0}.feed .t .ti{font-weight:700;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.feed .t .me{font-size:12px;color:var(--ink-soft);margin-top:3px}
+
+/* ===== BOARD ===== */
+.board-head{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.chip{font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);cursor:pointer;box-shadow:var(--shadow);transition:.2s}
+.chip.on{color:#fff;background:linear-gradient(135deg,var(--cyan),var(--cyan-deep));border-color:transparent;box-shadow:var(--glow-cyan)}
+.chip:hover{transform:translateY(-2px)}
+
+/* ===== POST ===== */
+.post{display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s}
+.post:hover{background:var(--bg2)}.post .num{width:30px;font-weight:800;color:var(--ink-soft);font-size:14px;text-align:center}
+.post .main{flex:1;min-width:0}.post .main .ti{font-weight:700;font-size:15.5px}.post .main .sub{font-size:12.5px;color:var(--ink-soft);margin-top:5px;display:flex;gap:12px}
+.post .reply{font-size:13px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--pink),var(--violet));min-width:40px;text-align:center;padding:6px 10px;border-radius:10px;border:0;cursor:pointer;transition:transform .2s}
+.post .reply:hover{transform:scale(1.06)}
+.writebtn{font-weight:800;font-size:14px;color:#fff;border:0;cursor:pointer;padding:11px 20px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--violet));box-shadow:var(--glow-cyan);transition:transform .2s}
+.writebtn:hover{transform:translateY(-2px)}
+
+/* ===== RANK ROW ===== */
+.rankrow{display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--line);transition:background .15s}
+.rankrow:hover{background:var(--bg2)}
+.rankrow .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;flex:none;background-position:center;background-size:cover}
+.rankrow .nm{flex:1;font-weight:700;font-size:15px}.rankrow .val{font-weight:800;font-size:14px;color:var(--cyan-deep);min-width:60px;text-align:right}
+
+/* ===== ORG MEMBER CARDS ===== */
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;text-align:center;box-shadow:var(--shadow);transition:.25s}
+.mcard:hover{transform:translateY(-5px);box-shadow:var(--glow-cyan)}
+.mcard .face{width:128px;height:128px;border-radius:50%;margin:0 auto;background-size:cover;background-position:center;display:grid;place-items:center;color:#fff;font-weight:900;font-size:46px;background-image:linear-gradient(135deg,#00beff,#8b5cff);transition:transform .3s}
+.mcard:hover .face{transform:scale(1.05)}
+.mcard .face.yxl{background-image:linear-gradient(135deg,#8b5cff,#ff5fa2)}
+.mcard .mn{font-weight:800;font-size:17px;margin-top:14px}.mcard .mr{font-size:13px;color:var(--ink-soft);margin-top:4px}
+
+/* ===== SIDE BANNERS ===== */
+.sidebanner{position:fixed;top:96px;width:300px;z-index:30;background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:18px;text-align:center;transition:transform .3s}
+.sidebanner.left{left:max(14px,calc(50% - 905px))}.sidebanner.right{right:max(14px,calc(50% - 905px))}
+.sidebanner .sb-label{font-size:15px;font-weight:800;color:var(--ink-soft)}
+.sidebanner .sb-photo{aspect-ratio:3/4;border-radius:18px;display:grid;place-items:center;font-size:84px;color:#fff;margin:12px 0;position:relative;overflow:hidden;background-position:center;background-size:cover;transition:transform .3s}
+.sidebanner:hover .sb-photo{transform:scale(1.02)}
+.sidebanner .sb-photo.yb{background-image:linear-gradient(160deg,#00beff,#0095e0)}.sidebanner .sb-photo.yxl{background-image:linear-gradient(160deg,#8b5cff,#ff5fa2)}
+.sidebanner .sb-crew{position:absolute;top:12px;left:12px;font-weight:900;font-size:14px;background:rgba(255,255,255,.22);padding:5px 13px;border-radius:9px}
+.sidebanner .sb-name{font-weight:900;font-size:24px}.sidebanner .sb-sub{font-size:14px;color:var(--ink-soft);margin-top:4px}
+.sidebanner .sb-vote{margin-top:14px;font-size:14px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--cyan),var(--violet));border:0;border-radius:999px;padding:10px 16px;cursor:pointer;width:100%;transition:transform .2s}
+.sidebanner .sb-vote:hover{transform:scale(1.03)}
+@media(max-width:1840px){.sidebanner{display:none}}
+
+/* ===== MISC ===== */
+.note{font-size:12.5px;color:var(--ink-soft);background:#fffbe9;border:1px solid #ffe9a8;border-radius:12px;padding:11px 15px;margin-top:14px}
+.empty{padding:30px;text-align:center;color:var(--ink-soft);font-size:14px}
+.loading{background:linear-gradient(90deg,var(--bg2) 25%,#dce8ff 50%,var(--bg2) 75%);background-size:400% 100%;animation:shimmer 1.8s infinite}
+
+/* ===== MODAL ===== */
+.modal-bg{position:fixed;inset:0;background:rgba(15,22,48,.5);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-bg.on{display:flex}
+.modal{background:var(--card);border-radius:var(--radius);box-shadow:0 30px 80px -20px rgba(15,22,48,.5);width:100%;max-width:400px;padding:26px;animation:fadeUp .3s ease}
+.modal h3{font-size:20px}.modal .close{float:right;border:0;background:var(--bg2);width:32px;height:32px;border-radius:10px;cursor:pointer;font-size:16px;color:var(--ink-soft);transition:transform .2s}
+.modal .close:hover{transform:rotate(90deg)}
+.field{margin-top:16px}.field label{font-size:13px;font-weight:800;color:var(--ink-soft);display:block;margin-bottom:7px}
+.field input,.field textarea,.field select{width:100%;font-family:inherit;font-size:14.5px;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg);outline:none;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,190,255,.15)}.field textarea{min-height:300px;resize:vertical}
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;background:linear-gradient(135deg,var(--cyan),var(--violet));color:#fff;font-weight:800;font-size:14px;padding:13px 22px;border-radius:14px;box-shadow:var(--glow-cyan);z-index:120;transition:.3s;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ===== FOOTER ===== */
+footer{margin:60px 0 40px;text-align:center;color:var(--ink-soft);font-size:13px;line-height:1.9}
+footer .flinks a{margin:0 8px;font-weight:700;color:var(--ink-soft);transition:color .2s}footer .flinks a:hover{color:var(--cyan-deep)}
+footer .copy{margin-top:10px;font-size:12px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:980px){
+  .g3{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(3,1fr)}.vgrid,.mgrid{grid-template-columns:1fr 1fr}.sgrid{grid-template-columns:repeat(3,1fr)}
+  .hero h1{font-size:34px}
+  nav.main{display:none}.search input{width:80px}
+  .hamburger{display:grid}
+}
+@media(max-width:560px){
+  .g3,.tiles,.vgrid{grid-template-columns:1fr 1fr}
+  .sgrid{grid-template-columns:1fr 1fr}
+  .mgrid{grid-template-columns:1fr 1fr}
+  .hero{padding:30px 22px}.hero h1{font-size:27px}
+  .bar{gap:8px}.search{display:none}
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL="https://yxuhvbxmwgwcehvwwwqd.supabase.co";
+  const SUPABASE_ANON_KEY="sb_publishable_SJGHipE--Yq3Aqko-z1ynA_naBuZPJY";
+  let sb=null;
+  try{ if(SUPABASE_URL.startsWith("http")){ sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY); } }catch(e){ console.warn("Supabase 초기화 실패:",e); }
+</script>
+</head>
+<body>
+
+<!-- ===== SIDE BANNERS (이달의 멤버) ===== -->
+<aside class="sidebanner left">
+  <div class="sb-label">⭐ 이달의 멤버</div>
+  <div class="sb-photo yb" id="ybPhoto"><span class="sb-crew">YB</span>📸</div>
+  <div class="sb-name" id="ybName">투표 대기중</div>
+  <div class="sb-sub" id="ybSub">YB · 투표로 결정돼요</div>
+  <button class="sb-vote" data-jump="vote">🗳️ 투표하러 가기</button>
+</aside>
+<aside class="sidebanner right">
+  <div class="sb-label">⭐ 이달의 멤버</div>
+  <div class="sb-photo yxl" id="yxlPhoto"><span class="sb-crew">YXL</span>📸</div>
+  <div class="sb-name" id="yxlName">투표 대기중</div>
+  <div class="sb-sub" id="yxlSub">YXL · 투표로 결정돼요</div>
+  <button class="sb-vote" data-jump="vote">🗳️ 투표하러 가기</button>
+</aside>
+
+<!-- ===== HEADER ===== -->
+<header class="top"><div class="wrap bar">
+  <div class="logo" data-jump="home"><div class="mark">YB</div><div>YXL / YB<small>YXL YB 커뮤니티</small></div></div>
+  <nav class="main">
+    <button class="on" data-view="home">🏠 홈</button>
+    <button data-view="org">👠 조직도</button>
+    <button data-view="live">📺 SOOP LIVE</button>
+    <button data-view="video">🎬 유튜브 영상</button>
+    <button data-view="shorts">⚡ 숏츠</button>
+    <button data-view="vote">🗳️ 투표</button>
+    <button data-view="board1">📰 YB·YXL 이야기</button>
+    <button data-view="board2">💭 SOOP 이야기</button>
+    <button data-view="board3">💽 피드백</button>
+    <button data-view="board4">🚨 악성 제보</button>
+    <button data-view="sig">👑 시그니처</button>
+    <button data-view="rank">🏆 VIP 전당</button>
+    <button data-view="admin" id="adminNav" style="display:none;color:#fff;background:linear-gradient(135deg,#ff5fa2,#8b5cff)">👑 관리자</button>
+  </nav>
+  <div class="search"><input id="globalSearch" placeholder="글 검색"><button id="searchBtn">🔍</button></div>
+  <button class="btn-login" id="loginBtn">로그인</button>
+  <button class="hamburger" id="hamburgerBtn">☰</button>
+</div></header>
+
+<!-- ===== MOBILE DRAWER ===== -->
+<div class="drawer-bg" id="drawerBg"></div>
+<nav class="drawer" id="drawer">
+  <button class="drawer-close" id="drawerClose">✕</button>
+  <h4>메뉴</h4>
+  <ul class="drawer-nav">
+    <button data-dview="home">🏠 홈</button>
+    <button data-dview="org">👠 조직도</button>
+    <button data-dview="live">📺 SOOP LIVE</button>
+    <button data-dview="video">🎬 유튜브 영상</button>
+    <button data-dview="shorts">⚡ 숏츠</button>
+    <button data-dview="vote">🗳️ 투표</button>
+    <button data-dview="board1">📰 YB·YXL 이야기</button>
+    <button data-dview="board2">💭 SOOP 이야기</button>
+    <button data-dview="board3">💽 피드백</button>
+    <button data-dview="board4">🚨 악성 제보</button>
+    <button data-dview="sig">👑 시그니처</button>
+    <button data-dview="rank">🏆 VIP 전당</button>
+    <button data-dview="admin" id="adminDrawer" style="display:none">👑 관리자</button>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+  <!-- ===== HOME ===== -->
+  <div class="view on" id="home">
+    <div class="hero">
+      <span class="tag"><span class="live-dot"></span> YXL · YB 공식 커뮤니티</span>
+      <h1>염보성과 <span class="neon">YXL · YB</span><br>커뮤니티</h1>
+      <p>크루의 방송과 영상, 게시판, 이달의 멤버 투표가 한곳에 모이는 공식 커뮤니티입니다.</p>
+      <div class="cta"><a class="go" data-jump="live">▶ SOOP LIVE</a><a class="ghost" data-jump="vote">🗳️ 이달의 멤버 투표</a></div>
+    </div>
+    <section><div class="tiles">
+      <div class="tile" data-jump="org"><div class="e">👠</div><div class="n">조직도</div></div>
+      <div class="tile" data-jump="live"><div class="e">📺</div><div class="n">SOOP LIVE</div></div>
+      <div class="tile" data-jump="video"><div class="e">🎬</div><div class="n">유튜브 영상</div></div>
+      <div class="tile" data-jump="shorts"><div class="e">⚡</div><div class="n">숏츠</div></div>
+      <div class="tile" data-jump="vote"><div class="e">🗳️</div><div class="n">투표</div></div>
+      <div class="tile" data-jump="sig"><div class="e">👑</div><div class="n">시그니처</div></div>
+    </div></section>
+    <section><div class="s-head"><h2><span class="ic" style="background:#ffe9f1">📺</span> 지금 방송 중</h2><a class="more" data-jump="live">전체 LIVE →</a></div><div class="mgrid" id="homeLive"><div class="empty">불러오는 중…</div></div></section>
+    <section><div class="s-head"><h2><span class="ic" style="background:#fff0f6">🔥</span> 최신 글</h2><a class="more" data-jump="board1">게시판 →</a></div><div class="card" id="homeRecent"><div class="empty">불러오는 중…</div></div></section>
+    <section><div class="s-head"><h2><span class="ic" style="background:#f0ebff">🎬</span> YB · YXL 유튜브</h2><a class="more" data-jump="video">전체 영상 →</a></div><div class="vgrid" id="homeVid"><div class="empty" style="grid-column:1/-1">불러오는 중…</div></div></section>
+    <section><div class="s-head"><h2><span class="ic" style="background:#fff0f6">⚡</span> 유튜브 숏츠</h2><a class="more" data-jump="shorts">전체 숏츠 →</a></div><div class="sgrid" id="homeShort"><div class="empty" style="grid-column:1/-1">불러오는 중…</div></div></section>
+  </div>
+
+  <!-- ===== 조직도 ===== -->
+  <div class="view" id="org">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px"><h1 style="font-size:34px">👠 조직도</h1><p>YXL 크루와 YB 크루의 구성</p></div>
+    <div class="s-head"><h2><span class="ic" style="background:#f0ebff">📀</span> YXL 크루</h2></div><div class="mgrid" id="orgYXL"><div class="empty" style="grid-column:1/-1">불러오는 중…</div></div>
+    <div class="s-head" style="margin-top:30px"><h2><span class="ic" style="background:#fff3e0">🎓</span> YB 크루</h2></div><div class="mgrid" id="orgYB"><div class="empty" style="grid-column:1/-1">불러오는 중…</div></div>
+  </div>
+
+  <!-- ===== SOOP LIVE ===== -->
+  <div class="view" id="live">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px"><h1 style="font-size:34px">📺 SOOP LIVE</h1><p>멤버들의 SOOP 방송 — 카드를 누르면 채널로 이동해요</p></div>
+    <div class="mgrid" id="liveGrid"><div class="empty" style="grid-column:1/-1">불러오는 중…</div></div>
+  </div>
+
+  <!-- ===== 유튜브 영상 ===== -->
+  <div class="view" id="video">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px;background:linear-gradient(120deg,#2a0a0a,#5a1530,#2a1a6b)"><h1 style="font-size:34px">🎬 유튜브 영상</h1><p>멤버를 선택하면 그 멤버의 최신 영상이 떠요</p></div>
+    <div class="board-head" id="vidTags"></div><div class="vgrid" id="vgrid"><div class="empty" style="grid-column:1/-1">멤버를 선택하세요.</div></div>
+  </div>
+
+  <!-- ===== 숏츠 ===== -->
+  <div class="view" id="shorts">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px;background:linear-gradient(120deg,#2a0a2a,#5a1545,#2a1a6b)"><h1 style="font-size:34px">⚡ 유튜브 숏츠</h1><p>멤버를 선택하면 그 멤버의 최신 숏츠가 떠요</p></div>
+    <div class="board-head" id="shTags"></div><div class="sgrid" id="sgrid"><div class="empty" style="grid-column:1/-1">멤버를 선택하세요.</div></div>
+  </div>
+
+  <!-- ===== 투표 ===== -->
+  <div class="view" id="vote">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px;background:linear-gradient(120deg,#1a1238,#3a1f6b,#15565a)"><h1 style="font-size:34px">🗳️ 이달의 멤버 투표</h1><p>이번 달 YB·YXL 멤버에게 투표하세요! 매달 1등이 좌우 배너에 자동으로 올라가요.</p></div>
+    <div class="grid g2">
+      <div class="card pad"><div class="s-head" style="margin-bottom:8px"><h2 style="font-size:18px"><span class="ic" style="background:#f0ebff">📀</span> YXL</h2></div><div id="voteYXL"><div class="empty">불러오는 중…</div></div></div>
+      <div class="card pad"><div class="s-head" style="margin-bottom:8px"><h2 style="font-size:18px"><span class="ic" style="background:#fff3e0">🎓</span> YB</h2></div><div id="voteYB"><div class="empty">불러오는 중…</div></div></div>
+    </div>
+    <div class="note">한 사람은 YB·YXL 각각 <b>한 달에 1표</b>씩 투표할 수 있어요. (로그인 + SOOP 인증 필요)</div>
+    <div id="candAdmin" style="display:none"><div class="s-head" style="margin-top:34px"><h2><span class="ic" style="background:#fff0f6">👑</span> 후보 관리 (관리자)</h2></div>
+      <div class="addbar"><input id="candName" placeholder="멤버 이름" style="max-width:150px"><select id="candCrew"><option>YB</option><option>YXL</option></select><input id="candPhoto" placeholder="사진 주소(URL) · 선택 — 배너에 표시됨"><button id="candAdd" class="writebtn">＋ 후보 추가</button></div>
+      <div class="card" id="candList"></div></div>
+  </div>
+
+  <!-- ===== 게시판 4종 ===== -->
+  <div class="view" id="board1">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px"><h1 style="font-size:34px">📰 YB · YXL 이야기</h1><p>크루와 팬이 함께 만드는 커뮤니티</p></div>
+    <div class="board-head"><span class="chip sortchip on" data-mode="new">🕒 최신순</span><span class="chip sortchip" data-mode="hot">📈 인기순</span><span style="margin-left:auto"><button class="writebtn" data-board="📰 YB·YXL 이야기">✏ 글쓰기</button></span></div>
+    <div class="card postList"><div class="empty">불러오는 중…</div></div>
+  </div>
+  <div class="view" id="board2">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px;background:linear-gradient(120deg,#0a1230,#15205a,#1a3a6b)"><h1 style="font-size:34px">💭 SOOP 이야기</h1><p>SOOP 방송·게임 자유 수다</p></div>
+    <div class="board-head"><span class="chip sortchip on" data-mode="new">🕒 최신순</span><span class="chip sortchip" data-mode="hot">📈 인기순</span><span style="margin-left:auto"><button class="writebtn" data-board="💭 SOOP 이야기">✏ 글쓰기</button></span></div>
+    <div class="card postList"><div class="empty">불러오는 중…</div></div>
+  </div>
+  <div class="view" id="board3">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px;background:linear-gradient(120deg,#0a2a28,#15565a,#1a3a6b)"><h1 style="font-size:34px">💽 피드백</h1><p>사이트·방송 건의와 피드백</p></div>
+    <div class="board-head"><span class="chip sortchip on" data-mode="new">🕒 최신순</span><span class="chip sortchip" data-mode="hot">📈 인기순</span><span style="margin-left:auto"><button class="writebtn" data-board="💽 피드백">✏ 글쓰기</button></span></div>
+    <div class="card postList"><div class="empty">불러오는 중…</div></div>
+  </div>
+  <div class="view" id="board4">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px;background:linear-gradient(120deg,#2a0a0a,#5a1530,#3a1f3a)"><h1 style="font-size:34px">🚨 악성 제보</h1><p>악성 유저·문제 상황을 제보해 주세요 (관리자 확인)</p></div>
+    <div class="board-head"><span class="chip sortchip on" data-mode="new">🕒 최신순</span><span class="chip sortchip" data-mode="hot">📈 인기순</span><span style="margin-left:auto"><button class="writebtn" data-board="🚨 악성 제보">✏ 제보하기</button></span></div>
+    <div class="card postList"><div class="empty">불러오는 중…</div></div>
+  </div>
+
+  <!-- ===== 시그니처 ===== -->
+  <div class="view" id="sig">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px;background:linear-gradient(120deg,#2a1a0a,#5a3a15,#2a1a6b)"><h1 style="font-size:34px">👑 시그니처 목록</h1><p>YXL·YB 시그니처 모음</p></div>
+    <div class="vgrid" id="sigGrid"><div class="empty" style="grid-column:1/-1">불러오는 중…</div></div>
+  </div>
+
+  <!-- ===== VIP 전당 ===== -->
+  <div class="view" id="rank">
+    <div class="hero" style="padding:34px 40px;margin-bottom:26px;background:linear-gradient(120deg,#1a1238,#3a1f6b,#6b1f5a)"><h1 style="font-size:34px">🏆 VIP 전당 · 열혈팬</h1><p>염보성 별풍선 후원 TOP 20 (열혈팬) — SOOP에서 자동 연동</p></div>
+    <div class="card" id="rankList"><div class="empty">불러오는 중…</div></div>
+  </div>
+
+  <!-- ===== 글쓰기 ===== -->
+  <div class="view" id="write">
+    <div class="hero" style="padding:30px 40px;margin-bottom:24px"><h1 style="font-size:30px">✏ 글쓰기</h1><p id="wHeroSub">새 글을 작성해 주세요</p></div>
+    <div class="card pad" style="padding:28px">
+      <div class="field"><label>게시판</label><select id="wCat"><option>📰 YB·YXL 이야기</option><option>💭 SOOP 이야기</option><option>💽 피드백</option><option>🚨 악성 제보</option></select></div>
+      <div class="field"><label>제목</label><input id="wTitle" placeholder="제목을 입력하세요" maxlength="80"></div>
+      <div class="field"><label>🎬 영상 가져오기 (선택)</label><input id="wYt" placeholder="영상 주소 붙여넣기 — 글에 영상이 함께 표시돼요"></div>
+      <div class="field"><label>내용</label><textarea id="wBody" placeholder="내용을 입력하세요"></textarea></div>
+      <div style="display:flex;gap:10px;margin-top:22px;justify-content:flex-end"><button class="chip" id="cancelWrite" style="padding:13px 24px">취소</button><button class="writebtn" id="submitWrite" style="padding:13px 28px">등록하기</button></div>
+    </div>
+  </div>
+
+  <!-- ===== 검색 결과 ===== -->
+  <div class="view" id="search">
+    <div class="hero" style="padding:30px 40px;margin-bottom:24px;background:linear-gradient(120deg,#0a1230,#2a1a6b,#3a1f6b)"><h1 style="font-size:30px">🔍 검색 결과</h1><p id="searchSub">검색어를 입력해 보세요</p></div>
+    <div class="card" id="searchPosts"><div class="empty">검색어를 입력하세요.</div></div>
+  </div>
+
+  <!-- ===== 글 상세 ===== -->
+  <div class="view" id="post">
+    <div style="margin-bottom:16px"><button class="chip" id="postBack" style="padding:10px 18px">← 목록으로</button></div>
+    <div class="card pad" style="padding:30px">
+      <div id="pBoard" style="font-size:13px;font-weight:800;color:var(--cyan-deep)">게시판</div>
+      <h1 id="pTitle" style="font-size:26px;margin:10px 0 12px">제목</h1>
+      <div id="pMeta" style="font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:16px">작성자</div>
+      <div id="pBody" style="margin-top:20px;font-size:15.5px;line-height:1.8;min-height:160px">본문</div>
+      <div style="margin-top:26px;border-top:1px solid var(--line);padding-top:18px">
+        <div style="font-weight:800;font-size:15px;margin-bottom:12px">💬 댓글</div>
+        <div class="addbar"><input id="cmtInput" placeholder="댓글을 입력하세요"><button id="cmtAdd">등록</button></div>
+        <div id="cmtList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 관리자 패널 ===== -->
+  <div class="view" id="admin">
+    <div class="hero" style="padding:34px 40px;margin-bottom:24px;background:linear-gradient(120deg,#3a1f6b,#6b1f5a,#2a1a6b)"><h1 style="font-size:30px">👑 관리자</h1><p>회원 승인 · 채널 · 조직도 · 라이브 · VIP · 시그니처 관리</p></div>
+    <div class="board-head"><span class="chip on" id="admPending">⏳ 승인 대기</span><span class="chip" id="admAll">전체 회원</span></div>
+    <div class="card" id="memberList"><div class="empty">불러오는 중…</div></div>
+    <div class="s-head" style="margin-top:34px"><h2><span class="ic" style="background:#fff0f6">📺</span> 멤버 유튜브 채널</h2></div>
+    <div class="addbar"><input id="chMember" placeholder="멤버 이름" style="max-width:150px"><input id="chUrl" placeholder="유튜브 채널 주소 / @핸들 / UC아이디"><button id="chAdd" class="writebtn">＋ 등록</button></div>
+    <div class="card" id="channelList"><div class="empty">등록된 채널이 여기 표시됩니다.</div></div>
+    <div class="s-head" style="margin-top:34px"><h2><span class="ic" style="background:#f0ebff">👠</span> 조직도 멤버</h2></div>
+    <div class="addbar"><input id="omName" placeholder="멤버 이름" style="max-width:120px"><select id="omCrew"><option>YXL</option><option>YB</option></select><input id="omRole" placeholder="직책/설명(선택)" style="max-width:140px"><input id="omPhoto" placeholder="사진 주소(URL) 선택"><button id="omAdd" class="writebtn">＋ 등록</button></div>
+    <div class="card" id="omList"><div class="empty">등록된 멤버가 여기 표시됩니다.</div></div>
+    <div class="s-head" style="margin-top:34px"><h2><span class="ic" style="background:#ffe9f1">📺</span> SOOP 라이브 멤버</h2></div>
+    <div class="addbar"><input id="lmName" placeholder="멤버 이름" style="max-width:120px"><select id="lmCrew"><option>YB</option><option>YXL</option></select><input id="lmSoop" placeholder="SOOP 아이디 (방송 주소용)"><button id="lmAdd" class="writebtn">＋ 등록</button></div>
+    <div class="card" id="lmList"><div class="empty">등록된 라이브 멤버가 여기 표시됩니다.</div></div>
+    <div class="s-head" style="margin-top:34px"><h2><span class="ic" style="background:#fff3e0">🏆</span> VIP 수동 등록 (열혈 자동연동 폴백)</h2></div>
+    <div class="addbar"><input id="vpName" placeholder="VIP 닉네임" style="max-width:160px"><input id="vpScore" type="number" placeholder="점수" style="max-width:120px"><button id="vpAdd" class="writebtn">＋ 등록</button></div>
+    <div class="card" id="vpList"><div class="empty">등록된 VIP가 여기 표시됩니다.</div></div>
+    <div class="s-head" style="margin-top:34px"><h2><span class="ic" style="background:#fff3e0">👑</span> 시그니처 등록</h2></div>
+    <div class="addbar"><input id="sgTitle" placeholder="제목" style="max-width:150px"><input id="sgImg" placeholder="이미지 주소(URL)"><input id="sgDesc" placeholder="설명(선택)" style="max-width:150px"><button id="sgAdd" class="writebtn">＋ 등록</button></div>
+    <div class="card" id="sgList"><div class="empty">등록된 시그니처가 여기 표시됩니다.</div></div>
+  </div>
+
+  <!-- ===== SOOP 인증 ===== -->
+  <div class="view" id="soopverify">
+    <div class="hero" style="padding:34px 40px;margin-bottom:24px;background:linear-gradient(120deg,#0a2a28,#15565a,#2a1a6b)"><h1 style="font-size:30px">🌳 SOOP 계정 인증</h1><p>본인 SOOP 계정 소유권을 확인하면 활동할 수 있어요</p></div>
+    <div class="card pad" style="padding:28px">
+      <p style="font-size:15px;line-height:1.7">아래 <b>인증 코드</b>를 본인 SOOP 프로필 메시지에 붙여넣고 저장한 뒤, <b>인증 확인</b>을 눌러주세요.</p>
+      <div style="margin:18px 0;padding:18px;border:2px dashed var(--cyan);border-radius:14px;background:#f0fbff;text-align:center">
+        <div style="font-size:12.5px;color:var(--ink-soft);font-weight:700">인증 코드 (클릭하면 복사)</div>
+        <div id="vCode" style="font-size:22px;font-weight:900;margin-top:8px;color:var(--cyan-deep);cursor:pointer">[yxl]------[/yxl]</div>
+        <div style="font-size:12px;color:var(--ink-soft);margin-top:6px">SOOP 아이디: <b id="vSoop">-</b></div>
+      </div>
+      <ol style="font-size:14.5px;line-height:1.9;padding-left:20px">
+        <li>아래 링크에서 SOOP <b>프로필 메시지</b>에 위 코드를 붙여넣고 <b>저장</b></li>
+        <li style="word-break:break-all"><a id="vLink" href="#" target="_blank" style="color:var(--cyan-deep);font-weight:700">https://ch.sooplive.co.kr/.../setting/basic</a></li>
+        <li>저장했으면 아래 <b>인증 확인</b> 클릭</li>
+      </ol>
+      <div style="display:flex;gap:10px;margin-top:20px"><button class="writebtn" id="vCheck" style="flex:1;padding:14px">✅ 인증 확인</button><button class="chip" id="vSkip" style="padding:14px 18px">나중에</button></div>
+      <div class="note" id="vNote" style="display:none"></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== LOGIN MODAL ===== -->
+<div class="modal-bg" id="authModal"><div class="modal">
+  <button class="close" id="authClose">✕</button><h3 id="authTitle">🔑 로그인</h3>
+  <div class="field"><label>이메일</label><input id="authEmail" type="email" placeholder="email@example.com"></div>
+  <div class="field" id="nickField" style="display:none"><label>닉네임</label><input id="authNick" placeholder="사이트에서 보일 이름"></div>
+  <div class="field" id="soopField" style="display:none"><label>SOOP(숲) 아이디</label><input id="authSoop" placeholder="본인 SOOP 아이디 (인증용)"></div>
+  <div class="field"><label>비밀번호</label><input id="authPw" type="password" placeholder="6자 이상"></div>
+  <div style="margin-top:20px"><button class="writebtn" id="authSubmit" style="width:100%;padding:13px">로그인</button></div>
+  <div style="text-align:center;margin-top:14px;font-size:13px;color:var(--ink-soft)"><span id="authSwitch" style="cursor:pointer;font-weight:700;color:var(--cyan-deep)">처음이신가요? 회원가입</span></div>
+  <div class="note" id="authNote" style="display:none"></div>
+</div></div>
+
+<div class="toast" id="toast">✅ 등록되었어요!</div>
+<footer class="wrap"><div class="flinks"><a href="#">이용약관</a>·<a href="#">개인정보처리방침</a>·<a href="#">청소년보호정책</a></div><div class="copy">ⓒ 2026 YXL / YB 커뮤니티 · yuambo@naver.com · powered by SOOP</div></footer>
+
+<script>
+/* ================================================================
+   YXL / YB COMMUNITY — MAIN SCRIPT
+   모든 로더는 개별 try/catch로 보호 (에러 격리)
+   ================================================================ */
+
+// ===== UTILITIES =====
+const $=id=>document.getElementById(id);
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function ytId(u){if(!u)return null;const m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);return m?m[1]:null;}
+const toast=$('toast');
+let toastTimer=null;
+function showToast(m){
+  if(toastTimer)clearTimeout(toastTimer);
+  toast.textContent=m;toast.classList.add('on');
+  toastTimer=setTimeout(()=>toast.classList.remove('on'),2200);
+}
+// 안전 호출 — 개별 로더가 에러를 내도 나머지가 멈추지 않음
+async function safe(fn, label){
+  try{ await fn(); }catch(e){ console.warn('['+label+'] 로드 실패:',e); }
+}
+
+// ===== NAVIGATION =====
+const btns=document.querySelectorAll('nav.main button[data-view]');
+const drawerBtns=document.querySelectorAll('.drawer-nav button[data-dview]');
+const views=document.querySelectorAll('.view');
+
+function baseGo(v){
+  btns.forEach(x=>x.classList.toggle('on',x.dataset.view===v));
+  drawerBtns.forEach(x=>x.classList.toggle('on',x.dataset.dview===v));
+  views.forEach(x=>{
+    if(x.id===v){x.classList.add('on');x.style.animation='none';x.offsetHeight;x.style.animation='';}
+    else x.classList.remove('on');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function loadFor(v){
+  // 각 로더를 독립적으로 실행 (에러 격리)
+  if(['board1','board2','board3','board4'].includes(v)) safe(()=>loadBoard(v),'board');
+  if(v==='video') safe(()=>loadTags('video'),'video-tags');
+  if(v==='shorts') safe(()=>loadTags('short'),'short-tags');
+  if(v==='vote') safe(()=>loadVote(),'vote');
+  if(v==='org') safe(()=>loadOrg(),'org');
+  if(v==='live') safe(()=>loadLive(),'live');
+  if(v==='rank') safe(()=>loadVip(),'vip');
+  if(v==='sig') safe(()=>loadSig(),'sig');
+  if(v==='home'){
+    safe(()=>loadBanners(),'banners');
+    safe(()=>loadHomeRecent(),'home-recent');
+    safe(()=>loadHomeLive(),'home-live');
+    safe(()=>loadHomeFeeds(),'home-feeds');
+  }
+  if(v==='admin'){
+    safe(()=>loadMembers(),'members');
+    safe(()=>loadChannels(),'channels');
+    safe(()=>loadOrgAdmin(),'org-admin');
+    safe(()=>loadLiveAdmin(),'live-admin');
+    safe(()=>loadVipAdmin(),'vip-admin');
+    safe(()=>loadSigAdmin(),'sig-admin');
+  }
+}
+
+function go(v,fromPop){
+  baseGo(v);loadFor(v);
+  if(!fromPop&&location.hash!=='#'+v) history.pushState({v:v},'','#'+v);
+  closeDrawer();
+}
+
+window.addEventListener('popstate',e=>{
+  const v=(e.state&&e.state.v)||(location.hash?location.hash.slice(1):'home');
+  if(document.getElementById(v)){baseGo(v);loadFor(v);}
+});
+
+btns.forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));
+document.querySelectorAll('[data-jump]').forEach(el=>el.addEventListener('click',()=>go(el.dataset.jump)));
+
+// 정렬 칩
+document.querySelectorAll('.board-head').forEach(grp=>grp.querySelectorAll('.sortchip').forEach(c=>c.addEventListener('click',()=>{
+  grp.querySelectorAll('.sortchip').forEach(x=>x.classList.remove('on'));c.classList.add('on');
+})));
+
+// ===== MOBILE DRAWER =====
+function openDrawer(){$('drawerBg').classList.add('on');$('drawer').classList.add('on');document.body.style.overflow='hidden';}
+function closeDrawer(){$('drawerBg').classList.remove('on');$('drawer').classList.remove('on');document.body.style.overflow='';}
+$('hamburgerBtn').addEventListener('click',openDrawer);
+$('drawerClose').addEventListener('click',closeDrawer);
+$('drawerBg').addEventListener('click',closeDrawer);
+drawerBtns.forEach(b=>b.addEventListener('click',()=>{go(b.dataset.dview);closeDrawer();}));
+
+// Logo click
+document.querySelector('.logo').addEventListener('click',()=>go('home'));
+
+// ===== WRITE =====
+let backTo='board1';
+document.querySelectorAll('.writebtn[data-board]').forEach(b=>b.addEventListener('click',()=>{
+  if(!currentUser){showToast('로그인이 필요해요');openAuth();return;}
+  if(!isApproved){showToast('SOOP 인증 후 글쓰기 가능');fillVerify();go('soopverify');return;}
+  backTo=b.closest('.view').id;$('wCat').value=b.dataset.board;
+  $('wHeroSub').textContent=b.dataset.board+' 에 글을 작성합니다';
+  $('wTitle').value='';$('wBody').value='';$('wYt').value='';go('write');
+}));
+$('cancelWrite').addEventListener('click',()=>go(backTo));
+$('submitWrite').addEventListener('click',async()=>{
+  const t=$('wTitle').value.trim();
+  if(!t){showToast('제목을 입력해 주세요');return;}
+  const cat=$('wCat').value;
+  const boardId=cat.indexOf('악성')>-1?'board4':(cat.indexOf('피드백')>-1?'board3':(cat.indexOf('SOOP')>-1?'board2':'board1'));
+  if(!sb){showToast('DB 미연결');return;}
+  if(!currentUser){showToast('로그인이 필요해요');openAuth();return;}
+  if(!isApproved){showToast('SOOP 인증 후 글쓰기 가능');fillVerify();go('soopverify');return;}
+  const {error}=await sb.from('posts').insert({board:boardId,title:t,body:$('wBody').value.trim(),yt_id:ytId($('wYt').value.trim())||'',author_id:currentUser.id,author_name:myNick});
+  if(error){showToast('등록 실패: '+error.message);return;}
+  showToast('✅ 등록되었어요!');go(boardId);
+});
+
+// ===== SORT =====
+let curSort={board1:'new',board2:'new',board3:'new',board4:'new'};
+document.querySelectorAll('.sortchip').forEach(c=>c.addEventListener('click',()=>{
+  const vid=c.closest('.view').id;curSort[vid]=c.dataset.mode;loadBoard(vid);
+}));
+
+// ===== POST DETAIL =====
+let postBackTo='board1', currentPostId=null;
+const boardNames={board1:'📰 YB·YXL 이야기',board2:'💭 SOOP 이야기',board3:'💽 피드백',board4:'🚨 악성 제보'};
+function openPost(p){
+  currentPostId=p.id;
+  $('pBoard').textContent=boardNames[postBackTo]||'게시판';
+  $('pTitle').textContent=p.title;
+  $('pMeta').textContent='👤 '+(p.author_name||'회원')+' · '+new Date(p.created_at).toLocaleDateString('ko');
+  $('pBody').innerHTML=
+    (p.yt_id?'<div style="aspect-ratio:16/9;border-radius:14px;overflow:hidden;margin-bottom:18px"><iframe src="https://www.youtube.com/embed/'+p.yt_id+'" allowfullscreen style="width:100%;height:100%;border:0"></iframe></div>':'')+
+    '<div>'+esc(p.body||'').replace(/\n/g,'<br>')+'</div>';
+  $('cmtList').innerHTML='';$('cmtInput').value='';
+  go('post');
+  safe(()=>loadComments(p.id),'comments');
+}
+$('postBack').addEventListener('click',()=>go(postBackTo));
+
+// ===== COMMENTS (DB 연동) =====
+async function loadComments(postId){
+  if(!sb||!postId)return;
+  const {data,error}=await sb.from('comments').select('*').eq('post_id',postId).order('created_at',{ascending:true});
+  const list=$('cmtList');
+  if(error||!data||!data.length){list.innerHTML=data&&!data.length?'<div class="empty">아직 댓글이 없어요.</div>':'';return;}
+  list.innerHTML='';
+  data.forEach(c=>{
+    const d=document.createElement('div');
+    d.style.cssText='padding:12px 0;border-top:1px solid var(--line);font-size:14px';
+    d.innerHTML='<b>'+esc(c.author_name||'회원')+'</b> · '+new Date(c.created_at).toLocaleDateString('ko')+'<br>'+esc(c.body);
+    list.appendChild(d);
+  });
+}
+$('cmtAdd').addEventListener('click',async()=>{
+  const v=$('cmtInput').value.trim();
+  if(!v)return;
+  if(!currentUser){showToast('로그인이 필요해요');openAuth();return;}
+  if(!isApproved){showToast('SOOP 인증 후 댓글 가능');return;}
+  if(!sb||!currentPostId){
+    // 폴백: DB 없으면 프론트에서만 표시
+    const d=document.createElement('div');
+    d.style.cssText='padding:12px 0;border-top:1px solid var(--line);font-size:14px';
+    d.innerHTML='<b>'+esc(myNick)+'</b> · 방금<br>'+esc(v);
+    $('cmtList').appendChild(d);$('cmtInput').value='';showToast('💬 댓글 등록!');return;
+  }
+  const {error}=await sb.from('comments').insert({post_id:currentPostId,body:v,author_id:currentUser.id,author_name:myNick});
+  if(error){showToast('댓글 실패: '+error.message);return;}
+  $('cmtInput').value='';showToast('💬 댓글 등록!');
+  loadComments(currentPostId);
+});
+
+// ===== SEARCH =====
+const gs=$('globalSearch');
+async function runSearch(){
+  const q=gs.value.trim();
+  if(!q){showToast('검색어를 입력해 주세요');return;}
+  $('searchSub').textContent='"'+q+'" 검색 결과';
+  const box=$('searchPosts');
+  box.innerHTML='<div class="empty">검색 중…</div>';go('search');
+  if(!sb)return;
+  try{
+    const {data}=await sb.from('posts').select('*').ilike('title','%'+q+'%').order('created_at',{ascending:false}).limit(50);
+    if(!data||!data.length){box.innerHTML='<div class="empty">일치하는 글이 없어요.</div>';return;}
+    box.innerHTML='';renderPosts(box,data,'search');
+  }catch(e){box.innerHTML='<div class="empty">검색 실패</div>';}
+}
+$('searchBtn').addEventListener('click',runSearch);
+gs.addEventListener('keydown',e=>{if(e.key==='Enter')runSearch();});
+
+// ===== VIDEO/SHORTS FEED =====
+function renderFeedCards(grid,videos,kind,lim){
+  grid.innerHTML='';
+  (lim?videos.slice(0,lim):videos).forEach(v=>{
+    const c=document.createElement('div');
+    const url=kind==='short'?'https://www.youtube.com/shorts/'+v.id:'https://www.youtube.com/watch?v='+v.id;
+    if(kind==='short'){
+      c.className='scard';
+      c.innerHTML='<div class="sthumb" style="background-image:url(https://img.youtube.com/vi/'+v.id+'/mqdefault.jpg)"><span class="playov">▶</span></div><div class="st">'+esc(v.title)+'</div>';
+    } else {
+      c.className='vcard';
+      c.innerHTML='<div class="vthumb" style="background-image:url(https://img.youtube.com/vi/'+v.id+'/mqdefault.jpg)"><span class="playov">▶</span></div><div class="vmeta"><div class="vt">'+esc(v.title)+'</div><div class="vc">📺 '+esc(v.author||'')+'</div></div>';
+    }
+    c.style.cursor='pointer';c.onclick=()=>window.open(url,'_blank','noopener');grid.appendChild(c);
+  });
+}
+async function fetchFeed(channels,kind){
+  const r=await fetch('/.netlify/functions/yt-feed',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({channels,kind})});
+  const j=await r.json();return j.videos||[];
+}
+async function loadFeed(kind,gridId,lim){
+  const grid=$(gridId);if(!grid||!sb)return;
+  const {data:chs}=await sb.from('yt_channels').select('member,channel');
+  if(!chs||!chs.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1">등록된 멤버 채널이 없어요.</div>';return;}
+  grid.innerHTML='<div class="empty" style="grid-column:1/-1">불러오는 중…</div>';
+  try{
+    const v=await fetchFeed(chs,kind);
+    if(!v.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1">표시할 영상이 없어요.</div>';return;}
+    renderFeedCards(grid,v,kind,lim);
+  }catch(e){grid.innerHTML='<div class="empty" style="grid-column:1/-1">⚠ 자동연동은 배포 후 작동해요.</div>';}
+}
+let homeFeedDone=false;
+function loadHomeFeeds(){
+  if(homeFeedDone)return;homeFeedDone=true;
+  safe(()=>loadFeed('video','homeVid',3),'home-vid');
+  safe(()=>loadFeed('short','homeShort',5),'home-short');
+}
+async function loadTags(kind){
+  const tagsId=kind==='short'?'shTags':'vidTags',gridId=kind==='short'?'sgrid':'vgrid';
+  const tagBox=$(tagsId),grid=$(gridId);
+  if(!sb||!tagBox)return;
+  const {data:chs}=await sb.from('yt_channels').select('member,channel');
+  if(!chs||!chs.length){tagBox.innerHTML='';grid.innerHTML='<div class="empty" style="grid-column:1/-1">등록된 멤버 채널이 없어요. 👑 관리자에서 등록하세요.</div>';return;}
+  tagBox.innerHTML='';
+  chs.forEach((c,i)=>{
+    const chip=document.createElement('span');chip.className='chip'+(i===0?' on':'');chip.textContent='▶ '+c.member;
+    chip.onclick=()=>{tagBox.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));chip.classList.add('on');loadFeedFor(c,gridId,kind);};
+    tagBox.appendChild(chip);
+  });
+  loadFeedFor(chs[0],gridId,kind);
+}
+async function loadFeedFor(ch,gridId,kind){
+  const grid=$(gridId);if(!grid)return;
+  grid.innerHTML='<div class="empty" style="grid-column:1/-1">'+esc(ch.member)+' 영상 불러오는 중…</div>';
+  try{
+    const v=await fetchFeed([ch],kind);
+    if(!v.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1">'+esc(ch.member)+'님의 영상이 없어요.</div>';return;}
+    renderFeedCards(grid,v,kind);
+  }catch(e){grid.innerHTML='<div class="empty" style="grid-column:1/-1">⚠ 자동연동은 배포 후 작동해요.</div>';}
+}
+
+// ===== AUTH =====
+let currentUser=null,myNick='회원',isAdmin=false,isApproved=false,mySoop='',myCode='';
+const loginBtn=$('loginBtn'),authModal=$('authModal');
+let authMode='login';
+
+function openAuth(){
+  if(!sb){showToast('DB 미연결');return;}
+  authModal.classList.add('on');
+}
+
+function setupAuth(){
+  if(!sb)return;
+  loginBtn.addEventListener('click',()=>{if(currentUser)doLogout();else openAuth();});
+  $('authClose').addEventListener('click',()=>authModal.classList.remove('on'));
+  authModal.addEventListener('click',e=>{if(e.target===authModal)authModal.classList.remove('on');});
+  $('authSwitch').addEventListener('click',()=>{
+    authMode=authMode==='login'?'signup':'login';
+    $('authTitle').textContent=authMode==='login'?'🔑 로그인':'📝 회원가입';
+    $('authSubmit').textContent=authMode==='login'?'로그인':'가입하기';
+    $('nickField').style.display=authMode==='login'?'none':'';
+    $('soopField').style.display=authMode==='login'?'none':'';
+    $('authSwitch').textContent=authMode==='login'?'처음이신가요? 회원가입':'이미 회원이신가요? 로그인';
+    $('authNote').style.display='none';
+  });
+  $('authSubmit').addEventListener('click',doAuth);
+  // 세션 복구
+  sb.auth.getSession().then(({data})=>{if(data.session)onLogin(data.session.user);}).catch(e=>console.warn('세션복구 실패:',e));
+  sb.auth.onAuthStateChange((_e,s)=>{if(s)onLogin(s.user);});
+}
+
+async function doAuth(){
+  const email=$('authEmail').value.trim(),pw=$('authPw').value,note=$('authNote');
+  if(!email||!pw){showToast('이메일·비밀번호를 입력하세요');return;}
+  if(authMode==='signup'){
+    const nick=$('authNick').value.trim()||email.split('@')[0];
+    const soop=$('authSoop').value.trim();
+    if(!soop){note.style.display='';note.textContent='SOOP 아이디를 입력해 주세요';return;}
+    const {error}=await sb.auth.signUp({email,password:pw,options:{data:{nickname:nick,soop_id:soop}}});
+    if(error){note.style.display='';note.textContent='가입 실패: '+error.message;return;}
+    note.style.display='';note.textContent='✅ 가입 완료! 로그인 후 SOOP 인증을 하면 활동할 수 있어요.';
+  } else {
+    const {data,error}=await sb.auth.signInWithPassword({email,password:pw});
+    if(error){note.style.display='';note.textContent='로그인 실패: '+error.message;return;}
+    authModal.classList.remove('on');onLogin(data.user);
+  }
+}
+
+async function onLogin(user){
+  currentUser=user;
+  try{
+    const {data:p}=await sb.from('profiles').select('nickname,is_admin,approved,soop_id,verify_code').eq('id',user.id).single();
+    myNick=(p&&p.nickname)||user.email.split('@')[0];
+    isAdmin=!!(p&&p.is_admin);
+    isApproved=!!(p&&p.approved);
+    mySoop=(p&&p.soop_id)||'';
+    myCode=(p&&p.verify_code)||'';
+  }catch(e){
+    myNick=user.email.split('@')[0];
+    console.warn('프로필 로드 실패:',e);
+  }
+  loginBtn.textContent=(isAdmin?'👑 ':'')+myNick+(isApproved?'':' (인증대기)');
+  $('adminNav').style.display=isAdmin?'':'none';
+  $('adminDrawer').style.display=isAdmin?'':'none';
+  if(!isApproved){
+    showToast('SOOP 계정 인증이 필요해요');fillVerify();go('soopverify');
+  } else {
+    showToast('환영합니다, '+myNick+'님!');
+  }
+}
+
+function fillVerify(){
+  const e=$('vCode');if(!e)return;
+  e.textContent='[yxl]'+myCode+'[/yxl]';
+  $('vSoop').textContent=mySoop||'(미입력)';
+  const a=$('vLink'),link='https://ch.sooplive.co.kr/'+(mySoop||'')+'/setting/basic';
+  a.href=link;a.textContent=link;
+}
+
+async function doLogout(){
+  await sb.auth.signOut();currentUser=null;isAdmin=false;isApproved=false;
+  loginBtn.textContent='로그인';$('adminNav').style.display='none';$('adminDrawer').style.display='none';
+  showToast('로그아웃 되었어요');
+}
+
+// ===== BOARD =====
+function renderPosts(list,data,boardId){
+  list.innerHTML='';let arr=data.slice();
+  if((curSort[boardId]||'new')==='hot') arr.sort((a,b)=>(b.views||0)-(a.views||0));
+  arr.forEach((p,i)=>{
+    const t=new Date(p.created_at),when=(t.getMonth()+1)+'-'+String(t.getDate()).padStart(2,'0');
+    const canDel=isAdmin||(currentUser&&currentUser.id===p.author_id);
+    const el=document.createElement('div');el.className='post';
+    el.innerHTML='<div class="num">'+(i+1)+'</div><div class="main"><div class="ti">'+(p.yt_id?'🎬 ':'')+esc(p.title)+'</div><div class="sub"><span>👤 '+esc(p.author_name||'회원')+'</span><span>🕒 '+when+'</span></div></div>'+(canDel?'<button class="reply delbtn" style="background:linear-gradient(135deg,#ff6b6b,#ff2e74)">삭제</button>':'<div class="reply">💬</div>');
+    el.addEventListener('click',e=>{
+      if(e.target.classList.contains('delbtn'))return;
+      postBackTo=boardId==='search'?'home':boardId;openPost(p);
+    });
+    const d=el.querySelector('.delbtn');
+    if(d)d.addEventListener('click',async e=>{
+      e.stopPropagation();if(!confirm('삭제할까요?'))return;
+      await sb.from('posts').delete().eq('id',p.id);showToast('🗑 삭제됨');loadBoard(boardId);
+    });
+    list.appendChild(el);
+  });
+}
+async function loadBoard(boardId){
+  if(!sb)return;
+  const list=document.querySelector('#'+boardId+' .postList');if(!list)return;
+  try{
+    const {data,error}=await sb.from('posts').select('*').eq('board',boardId).order('created_at',{ascending:false}).limit(80);
+    if(error){list.innerHTML='<div class="empty">불러오기 실패</div>';return;}
+    if(!data||!data.length){list.innerHTML='<div class="empty">아직 글이 없어요. 첫 글을 남겨보세요!</div>';return;}
+    renderPosts(list,data,boardId);
+  }catch(e){list.innerHTML='<div class="empty">불러오기 실패</div>';}
+}
+async function loadHomeRecent(){
+  const box=$('homeRecent');if(!box||!sb)return;
+  try{
+    const {data}=await sb.from('posts').select('title,board,author_name').order('created_at',{ascending:false}).limit(6);
+    if(!data||!data.length){box.innerHTML='<div class="empty">아직 글이 없어요.</div>';return;}
+    const ic={board1:'📰',board2:'💭',board3:'💽',board4:'🚨'};
+    box.innerHTML='<ul class="feed" style="padding:6px 14px">'+data.map(p=>'<li><div class="t"><div class="ti">'+esc(p.title)+'</div><div class="me">'+(ic[p.board]||'')+' '+esc(p.author_name||'회원')+'</div></div></li>').join('')+'</ul>';
+  }catch(e){box.innerHTML='<div class="empty">최신 글을 불러오지 못했어요.</div>';}
+}
+
+// ===== ORG =====
+async function loadOrg(){
+  if(!sb)return;
+  try{
+    const {data}=await sb.from('org_members').select('*').order('created_at');
+    [['YXL','orgYXL'],['YB','orgYB']].forEach(([crew,boxId])=>{
+      const box=$(boxId);if(!box)return;box.innerHTML='';
+      const list=(data||[]).filter(m=>m.crew===crew);
+      if(!list.length){box.innerHTML='<div class="empty" style="grid-column:1/-1">등록된 멤버가 없어요. (관리자가 등록)</div>';return;}
+      list.forEach(m=>{
+        const el=document.createElement('div');el.className='mcard';
+        const face=m.photo?'<div class="face" style="background-image:url('+m.photo+')"></div>':'<div class="face '+(crew==='YXL'?'yxl':'')+'">'+esc(m.name).slice(0,1)+'</div>';
+        el.innerHTML=face+'<div class="mn">'+esc(m.name)+'</div><div class="mr">'+esc(m.role||crew)+'</div>';box.appendChild(el);
+      });
+    });
+  }catch(e){console.warn('조직도 로드 실패:',e);}
+}
+
+// ===== LIVE =====
+function liveCardEl(m){
+  const el=document.createElement('div');el.className='mcard';
+  el.innerHTML='<div class="face '+(m.crew==='YXL'?'yxl':'')+'">'+esc(m.name).slice(0,1)+'</div><div class="mn">'+esc(m.name)+'</div><div class="mr">'+m.crew+' · SOOP</div><a href="https://www.sooplive.co.kr/'+encodeURIComponent(m.soop_id)+'" target="_blank" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(135deg,#ff5fa2,#8b5cff);padding:8px 16px;border-radius:999px;transition:transform .2s">▶ 방송 보기</a>';
+  return el;
+}
+async function loadLive(){
+  if(!sb)return;const box=$('liveGrid');if(!box)return;
+  try{
+    box.innerHTML='';
+    const {data}=await sb.from('live_members').select('*').order('created_at');
+    if(!data||!data.length){box.innerHTML='<div class="empty" style="grid-column:1/-1">등록된 라이브 멤버가 없어요. (관리자가 등록)</div>';return;}
+    data.forEach(m=>box.appendChild(liveCardEl(m)));
+  }catch(e){box.innerHTML='<div class="empty" style="grid-column:1/-1">라이브 멤버를 불러오지 못했어요.</div>';}
+}
+async function loadHomeLive(){
+  if(!sb)return;const box=$('homeLive');if(!box)return;
+  try{
+    box.innerHTML='';
+    const {data}=await sb.from('live_members').select('*').order('created_at').limit(4);
+    if(!data||!data.length){box.innerHTML='<div class="empty" style="grid-column:1/-1">등록된 라이브가 없어요.</div>';return;}
+    data.forEach(m=>box.appendChild(liveCardEl(m)));
+  }catch(e){box.innerHTML='<div class="empty" style="grid-column:1/-1">라이브를 불러오지 못했어요.</div>';}
+}
+
+// ===== VIP =====
+function vipRow(rank,name,img,score){
+  const row=document.createElement('div');row.className='rankrow';
+  const medal=rank===1?'🥇':rank===2?'🥈':rank===3?'🥉':String(rank);
+  const av=img?'<div class="av" style="background-image:url('+img+')"></div>':'<div class="av" style="background:linear-gradient(135deg,#ffb43d,#ff5fa2)">'+esc(name).slice(0,1)+'</div>';
+  row.innerHTML='<div style="width:30px;text-align:center;font-weight:900">'+medal+'</div>'+av+'<div class="nm">'+esc(name)+'</div>'+(score!=null?'<div class="val">'+score+'</div>':'');
+  return row;
+}
+async function loadVip(){
+  const box=$('rankList');if(!box)return;
+  box.innerHTML='<div class="empty">열혈팬 순위 불러오는 중…</div>';
+  try{
+    const r=await fetch('/.netlify/functions/soop-rank');
+    const j=await r.json();
+    if(j.top&&j.top.length){box.innerHTML='';j.top.forEach(u=>box.appendChild(vipRow(u.rank,u.nick,u.img,null)));return;}
+  }catch(e){/* SOOP API 실패 → 폴백 */}
+  // 폴백: 수동 등록
+  if(sb){
+    try{
+      const {data}=await sb.from('vip_rank').select('*').order('score',{ascending:false});
+      if(data&&data.length){box.innerHTML='';data.forEach((m,i)=>box.appendChild(vipRow(i+1,m.name,'',m.score||0)));return;}
+    }catch(e){}
+  }
+  box.innerHTML='<div class="empty">⚠ 열혈팬 순위는 배포(Netlify) 후 자동으로 떠요. (또는 관리자 수동 등록)</div>';
+}
+
+// ===== SIGNATURE =====
+async function loadSig(){
+  const box=$('sigGrid');if(!box||!sb)return;
+  try{
+    const {data}=await sb.from('signatures').select('*').order('created_at',{ascending:false});
+    if(!data||!data.length){box.innerHTML='<div class="empty" style="grid-column:1/-1">등록된 시그니처가 없어요. (관리자가 등록)</div>';return;}
+    box.innerHTML='';
+    data.forEach(s=>{
+      const c=document.createElement('div');c.className='vcard';
+      c.innerHTML=(s.image?'<div class="vthumb" style="background-image:url('+s.image+')"></div>':'<div class="vthumb"></div>')+'<div class="vmeta"><div class="vt">'+esc(s.title)+'</div><div class="vc">'+esc(s.descr||'')+'</div></div>';
+      box.appendChild(c);
+    });
+  }catch(e){box.innerHTML='<div class="empty" style="grid-column:1/-1">시그니처를 불러오지 못했어요.</div>';}
+}
+
+// ===== ADMIN =====
+let memberFilter='pending';
+async function loadMembers(){
+  if(!sb||!isAdmin)return;const box=$('memberList');
+  try{
+    let q=sb.from('profiles').select('id,nickname,soop_id,approved,is_admin,created_at').order('created_at',{ascending:false});
+    if(memberFilter==='pending')q=q.eq('approved',false);
+    const {data}=await q;
+    if(!data||!data.length){box.innerHTML='<div class="empty">'+(memberFilter==='pending'?'승인 대기 회원이 없어요.':'회원이 없어요.')+'</div>';return;}
+    box.innerHTML='';
+    data.forEach(m=>{
+      const row=document.createElement('div');row.className='rankrow';
+      const badge=m.is_admin?'관리자':(m.approved?'승인됨':'대기');
+      const bc=m.is_admin?'#8b5cff':(m.approved?'#0a8a3a':'#d98a1f');
+      row.innerHTML='<div class="av" style="background:linear-gradient(135deg,#00beff,#8b5cff)">'+(m.nickname||'?').slice(0,1)+'</div><div class="nm">'+esc(m.nickname||'회원')+' <span style="font-size:11px;font-weight:800;color:'+bc+'">['+badge+']</span><div style="font-size:12.5px;color:var(--ink-soft);font-weight:600;margin-top:3px">SOOP: '+esc(m.soop_id||'(미입력)')+'</div></div>';
+      if(!m.approved){
+        const ap=document.createElement('button');ap.className='reply';ap.style.background='linear-gradient(135deg,#19e3b1,#00beff)';ap.textContent='✔ 승인';
+        ap.onclick=async()=>{await sb.from('profiles').update({approved:true}).eq('id',m.id);showToast('✔ 승인 완료');loadMembers();};row.appendChild(ap);
+      }else if(!m.is_admin){
+        const rv=document.createElement('button');rv.className='reply';rv.style.background='var(--bg2)';rv.style.color='var(--ink-soft)';rv.textContent='취소';
+        rv.onclick=async()=>{await sb.from('profiles').update({approved:false}).eq('id',m.id);showToast('취소됨');loadMembers();};row.appendChild(rv);
+      }
+      box.appendChild(row);
+    });
+  }catch(e){box.innerHTML='<div class="empty">회원 목록 로드 실패</div>';}
+}
+$('admPending').addEventListener('click',()=>{memberFilter='pending';$('admPending').classList.add('on');$('admAll').classList.remove('on');loadMembers();});
+$('admAll').addEventListener('click',()=>{memberFilter='all';$('admAll').classList.add('on');$('admPending').classList.remove('on');loadMembers();});
+
+function adminRow(text,sub,onDel){
+  const row=document.createElement('div');row.className='rankrow';
+  row.innerHTML='<div class="av" style="background:linear-gradient(135deg,#00beff,#8b5cff)">'+esc(text).slice(0,1)+'</div><div class="nm">'+esc(text)+(sub?' <span style="color:var(--ink-soft);font-size:12px">'+esc(sub)+'</span>':'')+'</div>';
+  const del=document.createElement('button');del.className='reply';del.style.background='linear-gradient(135deg,#ff6b6b,#ff2e74)';del.textContent='삭제';del.onclick=onDel;row.appendChild(del);return row;
+}
+
+// -- 채널 --
+async function loadChannels(){
+  if(!sb||!isAdmin)return;const box=$('channelList');
+  try{
+    const {data}=await sb.from('yt_channels').select('*').order('created_at',{ascending:false});
+    if(!data||!data.length){box.innerHTML='<div class="empty">등록된 채널이 없어요.</div>';return;}
+    box.innerHTML='';data.forEach(c=>box.appendChild(adminRow(c.member,'('+c.channel+')',async()=>{await sb.from('yt_channels').delete().eq('id',c.id);showToast('🗑 삭제');loadChannels();homeFeedDone=false;})));
+  }catch(e){box.innerHTML='<div class="empty">채널 로드 실패</div>';}
+}
+$('chAdd').addEventListener('click',async()=>{
+  const member=$('chMember').value.trim(),channel=$('chUrl').value.trim();
+  if(!member||!channel){showToast('이름과 채널을 입력하세요');return;}
+  const {error}=await sb.from('yt_channels').insert({member,channel});
+  if(error){showToast('실패: '+error.message);return;}
+  $('chMember').value='';$('chUrl').value='';showToast('✅ 등록됨');loadChannels();homeFeedDone=false;
+});
+
+// -- 조직도 --
+async function loadOrgAdmin(){
+  if(!sb||!isAdmin)return;const box=$('omList');
+  try{
+    const {data}=await sb.from('org_members').select('*').order('created_at');
+    if(!data||!data.length){box.innerHTML='<div class="empty">등록된 멤버가 없어요.</div>';return;}
+    box.innerHTML='';data.forEach(m=>box.appendChild(adminRow(m.name,'('+m.crew+(m.role?' · '+m.role:'')+')',async()=>{await sb.from('org_members').delete().eq('id',m.id);showToast('🗑 삭제');loadOrgAdmin();})));
+  }catch(e){box.innerHTML='<div class="empty">로드 실패</div>';}
+}
+$('omAdd').addEventListener('click',async()=>{
+  const name=$('omName').value.trim();if(!name){showToast('이름을 입력하세요');return;}
+  const {error}=await sb.from('org_members').insert({name,crew:$('omCrew').value,role:$('omRole').value.trim(),photo:$('omPhoto').value.trim()});
+  if(error){showToast('실패: '+error.message);return;}
+  $('omName').value='';$('omRole').value='';$('omPhoto').value='';showToast('✅ 멤버 등록됨');loadOrgAdmin();
+});
+
+// -- 라이브 --
+async function loadLiveAdmin(){
+  if(!sb||!isAdmin)return;const box=$('lmList');
+  try{
+    const {data}=await sb.from('live_members').select('*').order('created_at');
+    if(!data||!data.length){box.innerHTML='<div class="empty">등록된 라이브 멤버가 없어요.</div>';return;}
+    box.innerHTML='';data.forEach(m=>box.appendChild(adminRow(m.name,'('+m.crew+' · '+m.soop_id+')',async()=>{await sb.from('live_members').delete().eq('id',m.id);showToast('🗑 삭제');loadLiveAdmin();})));
+  }catch(e){box.innerHTML='<div class="empty">로드 실패</div>';}
+}
+$('lmAdd').addEventListener('click',async()=>{
+  const name=$('lmName').value.trim(),soop=$('lmSoop').value.trim();
+  if(!name||!soop){showToast('이름과 SOOP 아이디를 입력하세요');return;}
+  const {error}=await sb.from('live_members').insert({name,crew:$('lmCrew').value,soop_id:soop});
+  if(error){showToast('실패: '+error.message);return;}
+  $('lmName').value='';$('lmSoop').value='';showToast('✅ 등록됨');loadLiveAdmin();
+});
+
+// -- VIP 수동 --
+async function loadVipAdmin(){
+  if(!sb||!isAdmin)return;const box=$('vpList');
+  try{
+    const {data}=await sb.from('vip_rank').select('*').order('score',{ascending:false});
+    if(!data||!data.length){box.innerHTML='<div class="empty">등록된 VIP가 없어요.</div>';return;}
+    box.innerHTML='';data.forEach(m=>box.appendChild(adminRow(m.name,'('+(m.score||0)+'점)',async()=>{await sb.from('vip_rank').delete().eq('id',m.id);showToast('🗑 삭제');loadVipAdmin();})));
+  }catch(e){box.innerHTML='<div class="empty">로드 실패</div>';}
+}
+$('vpAdd').addEventListener('click',async()=>{
+  const name=$('vpName').value.trim();if(!name){showToast('닉네임을 입력하세요');return;}
+  const {error}=await sb.from('vip_rank').insert({name,score:parseInt($('vpScore').value)||0});
+  if(error){showToast('실패: '+error.message);return;}
+  $('vpName').value='';$('vpScore').value='';showToast('✅ 등록됨');loadVipAdmin();
+});
+
+// -- 시그니처 --
+async function loadSigAdmin(){
+  if(!sb||!isAdmin)return;const box=$('sgList');
+  try{
+    const {data}=await sb.from('signatures').select('*').order('created_at',{ascending:false});
+    if(!data||!data.length){box.innerHTML='<div class="empty">등록된 시그니처가 없어요.</div>';return;}
+    box.innerHTML='';data.forEach(s=>box.appendChild(adminRow(s.title,s.descr||'',async()=>{await sb.from('signatures').delete().eq('id',s.id);showToast('🗑 삭제');loadSigAdmin();})));
+  }catch(e){box.innerHTML='<div class="empty">로드 실패</div>';}
+}
+$('sgAdd').addEventListener('click',async()=>{
+  const title=$('sgTitle').value.trim();if(!title){showToast('제목을 입력하세요');return;}
+  const {error}=await sb.from('signatures').insert({title,image:$('sgImg').value.trim(),descr:$('sgDesc').value.trim()});
+  if(error){showToast('실패: '+error.message);return;}
+  $('sgTitle').value='';$('sgImg').value='';$('sgDesc').value='';showToast('✅ 등록됨');loadSigAdmin();
+});
+
+// ===== VOTE =====
+const YM=new Date().toISOString().slice(0,7);
+async function getVoteData(){
+  const [c,v]=await Promise.all([
+    sb.from('vote_candidates').select('*'),
+    sb.from('votes').select('candidate_id,crew').eq('ym',YM)
+  ]);
+  const counts={};(v.data||[]).forEach(x=>counts[x.candidate_id]=(counts[x.candidate_id]||0)+1);
+  return {cands:c.data||[],counts};
+}
+function candRow(c,count,rank){
+  const row=document.createElement('div');row.className='rankrow';
+  const av=c.photo?'<div class="av" style="background-image:url('+c.photo+')"></div>':'<div class="av" style="background:linear-gradient(135deg,#00beff,#8b5cff)">'+esc(c.name).slice(0,1)+'</div>';
+  row.innerHTML=av+'<div class="nm">'+(rank===0?'👑 ':'')+esc(c.name)+'</div><div class="val">'+count+'표</div>';
+  const vb=document.createElement('button');vb.className='reply';vb.style.background='linear-gradient(135deg,var(--cyan),var(--violet))';vb.textContent='투표';
+  vb.onclick=()=>castVote(c);row.appendChild(vb);return row;
+}
+async function loadVote(){
+  if(!sb)return;
+  try{
+    const {cands,counts}=await getVoteData();
+    [['YXL','voteYXL'],['YB','voteYB']].forEach(([crew,boxId])=>{
+      const box=$(boxId);box.innerHTML='';
+      const list=cands.filter(c=>c.crew===crew).sort((a,b)=>(counts[b.id]||0)-(counts[a.id]||0));
+      if(!list.length){box.innerHTML='<div class="empty">후보가 없어요. (관리자가 추가)</div>';return;}
+      list.forEach((c,i)=>box.appendChild(candRow(c,counts[c.id]||0,i)));
+    });
+    $('candAdmin').style.display=isAdmin?'':'none';
+    if(isAdmin)loadCandList(cands);
+  }catch(e){console.warn('투표 로드 실패:',e);}
+}
+async function castVote(c){
+  if(!sb)return;
+  if(!currentUser){showToast('로그인이 필요해요');openAuth();return;}
+  if(!isApproved){showToast('SOOP 인증 후 투표 가능');return;}
+  const {error}=await sb.from('votes').insert({candidate_id:c.id,crew:c.crew,voter_id:currentUser.id,ym:YM});
+  if(error){showToast(/duplicate|unique/i.test(error.message)?('이번 달 '+c.crew+' 투표는 이미 하셨어요'):'투표 실패');return;}
+  showToast('🗳️ '+c.name+' 투표 완료!');loadVote();
+  safe(()=>loadBanners(),'banners-after-vote');
+}
+function loadCandList(cands){
+  const box=$('candList');box.innerHTML='';
+  if(!cands.length){box.innerHTML='<div class="empty">등록된 후보가 없어요.</div>';return;}
+  cands.forEach(c=>box.appendChild(adminRow(c.name,'('+c.crew+')',async()=>{
+    await sb.from('vote_candidates').delete().eq('id',c.id);showToast('🗑 삭제');loadVote();
+    safe(()=>loadBanners(),'banners-after-cand-del');
+  })));
+}
+$('candAdd').addEventListener('click',async()=>{
+  const name=$('candName').value.trim();if(!name){showToast('이름을 입력하세요');return;}
+  const {error}=await sb.from('vote_candidates').insert({name,crew:$('candCrew').value,photo:$('candPhoto').value.trim()});
+  if(error){showToast('추가 실패: '+error.message);return;}
+  $('candName').value='';$('candPhoto').value='';showToast('✅ 후보 추가됨');loadVote();
+});
+
+// ===== BANNERS =====
+async function loadBanners(){
+  if(!sb)return;
+  const {cands,counts}=await getVoteData();
+  [['YB','yb'],['YXL','yxl']].forEach(([crew,key])=>{
+    const list=cands.filter(c=>c.crew===crew).sort((a,b)=>(counts[b.id]||0)-(counts[a.id]||0));
+    const top=list[0];
+    if(top){
+      $(key+'Name').textContent=top.name;
+      $(key+'Sub').textContent=crew+' · '+YM.replace('-','.')+' · '+(counts[top.id]||0)+'표';
+      const ph=$(key+'Photo');
+      if(top.photo){
+        ph.style.backgroundImage='url('+top.photo+')';
+        ph.childNodes.forEach(n=>{if(n.nodeType===3)n.textContent='';});
+      }
+    }
+  });
+}
+
+// ===== SOOP VERIFY =====
+const vCodeEl=$('vCode');
+if(vCodeEl){
+  vCodeEl.addEventListener('click',()=>{if(navigator.clipboard)navigator.clipboard.writeText('[yxl]'+myCode+'[/yxl]');showToast('📋 복사됨');});
+  $('vSkip').addEventListener('click',()=>go('home'));
+  $('vCheck').addEventListener('click',async()=>{
+    const note=$('vNote');note.style.display='';note.textContent='SOOP 프로필을 확인하는 중…';
+    try{
+      const {data:{session}}=await sb.auth.getSession();
+      const r=await fetch('/.netlify/functions/verify-soop',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:session.access_token})});
+      const j=await r.json();
+      if(j.ok){
+        isApproved=true;note.textContent='🎉 '+(j.msg||'인증 완료!');
+        showToast('🎉 인증 완료!');loginBtn.textContent=(isAdmin?'👑 ':'')+myNick;
+        setTimeout(()=>go('home'),1200);
+      }else note.textContent='❌ '+(j.msg||'코드를 찾지 못했어요.');
+    }catch(e){note.textContent='⚠ 인증 기능은 배포 후 동작해요.';}
+  });
+}
+
+// ===== INIT =====
+setupAuth();
+// 홈 데이터 로드 — 각각 독립적으로 (에러 격리의 핵심)
+if(sb){
+  safe(()=>loadBanners(),'init-banners');
+  safe(()=>loadHomeRecent(),'init-recent');
+  safe(()=>loadHomeLive(),'init-live');
+  safe(()=>loadHomeFeeds(),'init-feeds');
+}
+
+// 초기 해시 라우팅
+const initHash=location.hash?location.hash.slice(1):'home';
+if(initHash!=='home'&&document.getElementById(initHash)){go(initHash,true);}
+else if(!location.hash) history.replaceState({v:'home'},'','#home');
+</script>
+</body>
+</html>

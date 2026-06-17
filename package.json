@@ -1,0 +1,9 @@
+{
+  "name": "yxl-site",
+  "version": "1.0.0",
+  "description": "YXL YB Fan Community Serverless Functions",
+  "main": "index.js",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}
